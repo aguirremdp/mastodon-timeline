@@ -26,19 +26,18 @@
 			return response.json();
 		}
 
-		function getMastodonInstanceNameByUrl(url)
-		{
-			var instanceName = url.substring("https://".length);
+		function getMastodonInstanceNameByUrl(url) {
+			let instanceName = url.substring("https://".length);
 			instanceName = instanceName.substring(0, instanceName.indexOf("/"));
-return instanceName;
+			return instanceName;
 		}
-		
-		var urlElement = document.getElementById("mastodonUrl");
+
+		const urlElement = document.getElementById("mastodonUrl");
 		urlElement.innerHTML = getMastodonInstanceNameByUrl(mastodonUrl);
-		
+
 		getMastodonTimeline()
 			.then((data) => {
-				var timelineElement = document.getElementById("timeline");
+				let timelineElement = document.getElementById("timeline");
 
 				for (const toot of data) {
 					var liElement = document.createElement("li");
